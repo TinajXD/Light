@@ -14,8 +14,8 @@ document.getElementById("container3D").appendChild(renderer.domElement);
 const scene = new THREE.Scene()
 
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000)
-camera.position.set(7.5, 10, 7.5)
-camera.lookAt(0, 4, 0)
+camera.position.set(2.5, 0, 2.5)
+camera.lookAt(0, 0, 0)
 
 const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
@@ -25,7 +25,7 @@ controls.maxDistance = 10
 controls.minPolarAngle = 0.5
 controls.maxPolarAngle = 1.5
 controls.autoRotate = false
-controls.target = new THREE.Vector3(1, 4.5, -2)
+controls.target = new THREE.Vector3(0, 5, 0)
 controls.update()
 
 
@@ -45,9 +45,10 @@ scene.add(spotLight)
 
 
 const loader = new GLTFLoader()
-loader.load("models/statue.gltf", (gltf) =>{
+loader.load("models/StanfordDragon.gltf", (gltf) =>{
   const mesh = gltf.scene
   mesh.position.set(0.5, 0, -.5)
+  mesh.scale.set(1, 1, 1)
   scene.add(mesh)
 })
 
