@@ -2,12 +2,11 @@
 
 pkgs.mkShell {
     packages = with pkgs; [
-      nodejs
+      nodejs_21
     ];
 
     shellHook = ''
-      npm install npm@latest
-      node version
+      node -v
       npm install
     '';
   
